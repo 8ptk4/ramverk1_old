@@ -18,7 +18,8 @@ return [
             "htmlClass" => null,
             "lang" => "sv",
             "stylesheets" => [
-                "css/dbwebb-se.min.css",
+                //"css/dbwebb-se.min.css",
+                "css/my-style.min.css",
             ],
             "javascripts" => [
                 "js/responsive-menu.js",

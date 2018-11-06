@@ -1,0 +1,81 @@
+/*
+ * INCLUDE MAIN DBWEBB THEME
+ */
+@import "dbwebb-se_v2.less";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+// BACKGROUNDS
+@mainBgStart: #50545b;
+@mainBgEnd: #6f737a;
+
+// BUTTON
+@navBtnHover: #2194E0;
+
+
+body {
+    background: @mainBgStart; /* Old browsers */
+}
+
+.outer-wrap-flash,
+.site-logo {
+    display: none;
+}
+
+.region-header-col-2 {
+    display: flex;
+    justify-content: center;
+}
+
+.inner-wrap-header {
+    // Old browsers
+    background: @mainBg;
+    // FF3.6-15
+    background: -moz-linear-gradient(top, @mainBgStart 0%, @mainBgEnd 100%);
+    // Chrome10-25,Safari5.1-6
+    background: -webkit-linear-gradient(top, @mainBgStart 0%,@mainBgEnd 100%);
+    // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+    background: linear-gradient(to bottom, @mainBgStart 0%, @mainBgEnd 100%);
+    // IE6-9
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@mainBgStart', endColorstr='@mainBgEnd',GradientType=0 );
+}
+
+.outer-wrap-header {
+    height: @magicNumber * 3;
+}
+
+.my-navbar li {
+    border-left: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, .3);
+    display: block;
+    float: left;
+
+    a {
+        text-decoration: none !important;
+    }
+}
+
+    .my-navbar li:hover {
+        color: @navBtnHover;
+        text-shadow:0px 0px 6px @navBtnHover;
+    }
+
+.rm-desktop li ul {
+    background: #52565C;
+    text-shadow: none;
+    outline: none;
+}
+    .rm-desktop li ul li:hover {
+        background: #52565C;
+        text-decoration: none;
+        outline: none;
+    }
+
+.my-navbar {
+    text-transform: uppercase;
+    text-shadow: 0px 1px 1px #a0a0a0;
+    font-size: 0.7em;
+    line-height: 24px;
+}
