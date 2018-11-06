@@ -1,5 +1,5 @@
 ---
-title: "Min fina titel"
+title: "Om"
 ---
 Min me-sida i kursen ramverk1
 =========================
