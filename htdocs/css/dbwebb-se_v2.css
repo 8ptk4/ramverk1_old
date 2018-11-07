@@ -5478,7 +5478,7 @@ img {
  * and other regions of the page including route specific styles.
  */
 /** ==============================================================
- * Horisontal grid setup 
+ * Horisontal grid setup
  */
 .inner-wrap {
   margin-right: auto;
@@ -5502,7 +5502,7 @@ img {
   clear: both;
 }
 /** ==============================================================
- * Header 
+ * Header
  */
 /*
 .site-header {
@@ -6022,10 +6022,6 @@ a.rm-button.rm-clicked .rm-button-face-2 {
     margin-right: 0.52083333%;
     margin-left: 0.52083333%;
   }
-  .region-sidebar-right,
-  .region-sidebar-left {
-    display: none;
-  }
   .col3 {
     display: inline;
     float: left;
@@ -6086,7 +6082,7 @@ a.rm-button.rm-clicked .rm-button-face-2 {
  * Base
  */
 /** ==============================================================
- * Header 
+ * Header
  */
 /**
  * A header style for dbwebb.se.
@@ -6217,7 +6213,8 @@ a.rm-button.rm-clicked .rm-button-face-2 {
     margin-right: 4px;
   }
   .outer-wrap-flash,
-  .outer-wrap-footer {
+  .outer-wrap-footer,
+  .outer-wrap-header {
     margin-left: 0;
     margin-right: 0;
   }

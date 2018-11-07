@@ -5481,7 +5481,7 @@ img {
  * and other regions of the page including route specific styles.
  */
 /** ==============================================================
- * Horisontal grid setup 
+ * Horisontal grid setup
  */
 .inner-wrap {
   margin-right: auto;
@@ -5505,7 +5505,7 @@ img {
   clear: both;
 }
 /** ==============================================================
- * Header 
+ * Header
  */
 /*
 .site-header {
@@ -6025,10 +6025,6 @@ a.rm-button.rm-clicked .rm-button-face-2 {
     margin-right: 0.52083333%;
     margin-left: 0.52083333%;
   }
-  .region-sidebar-right,
-  .region-sidebar-left {
-    display: none;
-  }
   .col3 {
     display: inline;
     float: left;
@@ -6089,7 +6085,7 @@ a.rm-button.rm-clicked .rm-button-face-2 {
  * Base
  */
 /** ==============================================================
- * Header 
+ * Header
  */
 /**
  * A header style for dbwebb.se.
@@ -6220,7 +6216,8 @@ a.rm-button.rm-clicked .rm-button-face-2 {
     margin-right: 4px;
   }
   .outer-wrap-flash,
-  .outer-wrap-footer {
+  .outer-wrap-footer,
+  .outer-wrap-header {
     margin-left: 0;
     margin-right: 0;
   }
@@ -6480,12 +6477,18 @@ a.rm-button.rm-clicked .rm-button-face-2 {
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
 }
-/*
- * STYLE FOR HEADER / NAVBAR
- */
 body {
-  background: #6f737a;
-  /* Old browsers */
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.wrap-all {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.footer-column-wrapper {
+  display: inline-flex;
 }
 .outer-wrap-flash,
 .site-logo {
@@ -6496,16 +6499,22 @@ body {
   justify-content: center;
 }
 .inner-wrap-header {
-  background: #6f737a;
-  /* Old browsers */
+  background: #50545b;
   background: -moz-linear-gradient(top, #50545b 0%, #6f737a 100%);
-  /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #50545b 0%, #6f737a 100%);
-  /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #50545b 0%, #6f737a 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#50545b', endColorstr='@mainBg', GradientType=0);
-  /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@mainBgStart', endColorstr='@mainBgEnd', GradientType=0);
+  box-shadow: 0 0 10px 6px rgba(1, 220, 255, 0.2);
+  border-bottom: 1px solid #2194E0;
+}
+.outer-wrap-footer {
+  background: #50545b;
+  background: -moz-linear-gradient(top, #6f737a 0%, #50545b 100%);
+  background: -webkit-linear-gradient(top, #6f737a 0%, #50545b 100%);
+  background: linear-gradient(to bottom, #6f737a 0%, #50545b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@mainBgEnd', endColorstr='@mainBgStart', GradientType=0);
+  box-shadow: 0 0 10px 6px rgba(1, 220, 255, 0.2);
+  border-top: 1px solid #2194E0;
 }
 .outer-wrap-header {
   height: 72px;
@@ -6525,6 +6534,13 @@ body {
 .my-navbar li:hover {
   color: #2194E0;
   text-shadow: 0px 0px 6px #2194E0;
+  border-bottom: 1px solid #2194E0;
+}
+.my-navbar li:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.my-navbar li:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 .rm-desktop li ul {
   background: #52565C;
@@ -6542,3 +6558,9 @@ body {
   font-size: 0.7em;
   line-height: 24px;
 }
+.site-logo-text-icon {
+  display: none;
+}
+/*
+ * LAYOUT CHANGES
+ */

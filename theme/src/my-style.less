@@ -13,7 +13,21 @@
 
 
 body {
-    background: @mainBgStart; /* Old browsers */
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    //background: @mainBgStart; /* Old browsers */
+}
+
+.wrap-all {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-column-wrapper {
+    display: inline-flex;
 }
 
 .outer-wrap-flash,
@@ -28,7 +42,7 @@ body {
 
 .inner-wrap-header {
     // Old browsers
-    background: @mainBg;
+    background: @mainBgStart;
     // FF3.6-15
     background: -moz-linear-gradient(top, @mainBgStart 0%, @mainBgEnd 100%);
     // Chrome10-25,Safari5.1-6
@@ -37,6 +51,25 @@ body {
     background: linear-gradient(to bottom, @mainBgStart 0%, @mainBgEnd 100%);
     // IE6-9
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@mainBgStart', endColorstr='@mainBgEnd',GradientType=0 );
+
+    box-shadow: 0 0 10px 6px rgba(1,220,255,.2);
+    border-bottom: 1px solid #2194E0;
+}
+
+.outer-wrap-footer {
+    // Old browsers
+    background: @mainBgStart;
+    // FF3.6-15
+    background: -moz-linear-gradient(top, @mainBgEnd 0%, @mainBgStart 100%);
+    // Chrome10-25,Safari5.1-6
+    background: -webkit-linear-gradient(top, @mainBgEnd 0%,@mainBgStart 100%);
+    // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+    background: linear-gradient(to bottom, @mainBgEnd 0%, @mainBgStart 100%);
+    // IE6-9
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@mainBgEnd', endColorstr='@mainBgStart',GradientType=0 );
+
+    box-shadow: 0 0 10px 6px rgba(1,220,255,.2);
+    border-top: 1px solid #2194E0;
 }
 
 .outer-wrap-header {
@@ -62,6 +95,14 @@ body {
         text-shadow:0px 0px 6px @navBtnHover;
     }
 
+    .my-navbar li:last-child {
+        border-right: 1px solid rgba(255,255,255,0.1) !important;
+    }
+
+    .my-navbar li:first-child {
+        border-left: 1px solid rgba(255,255,255,0.1) !important;
+    }
+
 .rm-desktop li ul {
     background: #52565C;
     text-shadow: none;
@@ -79,3 +120,23 @@ body {
     font-size: 0.7em;
     line-height: 24px;
 }
+
+.site-logo-text-icon {
+    display: none;
+}
+/*
+ * LAYOUT CHANGES
+ */
+ .region-header-col-1 {
+     //display: none !important;
+     //#desinax-vgrid .column(5);
+ }
+
+ .region-header-col-2 {
+     //#desinax-vgrid .column(24) !important;
+ }
+
+ .region-header-col-3 {
+    // display: none !important;
+     //#desinax-vgrid .column(5);
+ }
