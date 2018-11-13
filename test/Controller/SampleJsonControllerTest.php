@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  */
 class SampleJsonControllerTest extends TestCase
 {
-    
+
     // Create the di container.
     protected $di;
     protected $controller;
@@ -82,7 +82,7 @@ class SampleJsonControllerTest extends TestCase
 
         $json = $res[0];
         $status = $res[1];
-
+        
         $exp = "forbidden to access";
         $this->assertContains($exp, $json["message"]);
         $this->assertEquals(403, $status);

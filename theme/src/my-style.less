@@ -76,12 +76,18 @@ body {
     height: @magicNumber * 3;
 }
 
+h1 {
+    display: table;
+}
+
 .my-navbar li {
     border-left: 1px solid rgba(255,255,255,0.1);
     border-right: 1px solid rgba(0,0,0,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(0,0,0,0.1);
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, .3);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     display: block;
     float: left;
 
@@ -89,7 +95,6 @@ body {
         text-decoration: none !important;
     }
 }
-
     .my-navbar li:hover {
         color: @navBtnHover;
         text-shadow:0px 0px 6px @navBtnHover;
@@ -124,19 +129,47 @@ body {
 .site-logo-text-icon {
     display: none;
 }
-/*
- * LAYOUT CHANGES
- */
- .region-header-col-1 {
-     //display: none !important;
-     //#desinax-vgrid .column(5);
- }
 
- .region-header-col-2 {
-     //#desinax-vgrid .column(24) !important;
- }
+.form-wrapper form input {
+    display: inline-block;
+    width: 100%;
+    line-height: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: solid 1px #e6e6e;
+    border-bottom-width: 3px;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    outline: none;
+    text-indent: 10px;
+}
 
- .region-header-col-3 {
-    // display: none !important;
-     //#desinax-vgrid .column(5);
- }
+.button {
+    width: 200px !important;
+    height: 40px !important;
+    line-height: 0px !important;
+    margin-bottom: 10px;
+    background: linear-gradient(to bottom,#50545b 0,#6f737a 100%);
+    border-radius: 0px !important;
+    text-shadow: 0px 1px 1px #a0a0a0;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, .3);
+}
+
+    .button:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        cursor:pointer;
+        color: @navBtnHover;
+        text-shadow:0px 0px 6px @navBtnHover;
+    }
+
+
+.save {
+    //background: #6d83b8 !important;
+    //border-color: #4b6bb7 !important;
+    //color: white;
+}
