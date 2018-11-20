@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FlatFileContentControllerTest extends TestCase
 {
-    
+
     // Create the di container.
     protected $di;
     protected $controller;
@@ -34,7 +34,6 @@ class FlatFileContentControllerTest extends TestCase
         // Setup the controller
         $this->controller = new FlatFileContentController();
         $this->controller->setDI($this->di);
-        //$this->controller->initialize();
     }
 
 

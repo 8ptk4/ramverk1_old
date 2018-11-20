@@ -1,10 +1,10 @@
 <?php
 
-namespace Anax\Request;
+namespace Patrik\IpValidator;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
-use Patrik\IpValidator\IpValidatorController;
+use Anax\Request\Request;
 
 /**
  * Test the IpValidatorController.
@@ -30,12 +30,13 @@ class IpValidatorControllerTest extends TestCase
         $di = $this->di;
         $this->controller = new IpValidatorController();
         $this->controller->setDI($this->di);
+
         $di->request = new Request();
         $di->request->setGlobals(
             [
                 'post' => [
-                    'ipAdress' => "19.117.63.126",
-                    'doSubmit' => true,
+                    'ipAddressIpv4' => "172.16.254.1",
+                    'ipAddressIpv6' => "2001:4860:4860::8844",
                 ]
             ]
         );
@@ -44,79 +45,41 @@ class IpValidatorControllerTest extends TestCase
 
 
     /**
-     * Test setIp should Equal getIp.
+     * Test IPV4 Validation.
+     * @method testValidationIpv4
      */
-    public function testSetGetIp()
+    public function testValidationIpv4()
     {
-        $this->controller->setIp('19.117.63.126');
-        $exp = '19.117.63.126';
-        $this->assertEquals($exp, $this->controller->getIp());
-    }
-
-
-
-    /**
-     * Test ValidateIPV4 adress returns a string.
-     */
-    public function testValidateIPV4()
-    {
-        $this->controller->setIp('85.227.176.120');
-        $ipAdress = $this->controller->getIp();
-        $this->controller->validateIp($ipAdress);
+        $this->controller->ipAddress = $this->di->request->getPost('ipAddressIpv4');
+        $this->controller->status = $this->controller->validateIp($this->controller->ipAddress);
+        $this->controller->domain = $this->controller->getDomain($this->controller->ipAddress, $this->controller->status);
+        $this->assertContains("IPV4", $this->controller->status);
         $this->assertInternalType('string', $this->controller->status);
     }
 
 
 
     /**
-     * Test ValidateIPV6 returns a string.
+     * Test IPV6 Validation.
+     * @method testValidationIpv6
      */
-    public function testValidateIPV6()
+    public function testValidationIpv6()
     {
-        $this->controller->setIp('2001:db8:85a3::8a2e:370:7334');
-        $ipAdress = $this->controller->getIp();
-        $this->controller->validateIp($ipAdress);
-
-        $this->assertInternalType('string', $this->controller->status);
+        $this->controller->ipAddress = $this->di->request->getPost('ipAddressIpv6');
+        $this->controller->status = $this->controller->validateIp($this->controller->ipAddress);
+        $this->assertContains("IPV6", $this->controller->status);
     }
 
 
 
     /**
-     * Test that a non ValidIp returns a string.
+     * Test IndexAction
+     * @method testIndexAction.
      */
-    public function testValidateFail()
-    {
-        $this->controller->setIp('hej');
-        $ipAdress = $this->controller->getIp();
-        $this->controller->validateIp($ipAdress);
-        $this->assertInternalType('string', $this->controller->status);
-    }
-
-
-
-    /**
-     * Test so that post values is expected. And that submit is true.
-     */
-    public function testPostVariables()
-    {
-        $this->assertNotNull($this->di->request->getPost('doSubmit'));
-        $this->controller->setIp($this->di->request->getPost('ipAdress'));
-
-        $this->assertEquals($this->controller->ipAdress, $this->di->request->getPost('ipAdress'));
-    }
-
-
-
-    /**
-     * Test the route "index".
-     */
-    public function testIpValidationIndexAction()
+    public function testIndexAction()
     {
         $res = $this->controller->indexAction();
-        $this->assertInstanceOf("\Anax\Response\Response", $res);
         $body = $res->getBody();
-        $exp = "| ramverk1</title>";
-        $this->assertContains($exp, $body);
+        $this->assertContains("| ramverk1", $body);
     }
 }

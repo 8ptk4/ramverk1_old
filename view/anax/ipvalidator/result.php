@@ -3,7 +3,7 @@
 namespace Anax\View;
 
 /**
- * Style chooser.
+ * Result.
  */
 
 // Show incoming variables and view helper functions
@@ -12,7 +12,15 @@ namespace Anax\View;
 //var_dump($data);
 
 ?><div>
-    <h1><?= $data['ipAdress'] ?></h1>
-    <p><?= $data['status'] ?></p>
-    <p><?= $data['domain'] ?></p>
+
+    <h1><?= $ipAddress ?></h1>
+
+    <?php if ($status) : ?>
+        <p>Status: <?= $status ?></p>
+    <?php endif; ?>
+
+    <?php if ($domain and $domain != $ipAddress) : ?>
+        <p>Domän: <?= $domain ?></p>
+    <?php endif; ?>
+
 </div>

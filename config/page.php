@@ -19,7 +19,7 @@ return [
             "lang" => "sv",
             "stylesheets" => [
                 //"css/dbwebb-se.min.css",
-                "css/my-style.min.css",
+                "css/purple.min.css",
             ],
             "javascripts" => [
                 "js/responsive-menu.js",
@@ -43,7 +43,7 @@ return [
             "template" => "anax/v2/header/site_logo_text",
             "data" => [
                 "homeLink"      => "",
-                "siteLogoText"  => "ramverk1",
+                "siteLogoText"  => "PK",
                 "siteLogoTextIcon" => "image/theme/leaf_40x40.png",
                 "siteLogoTextIconAlt" => "Löv-bild",
             ],

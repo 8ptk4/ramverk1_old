@@ -16,22 +16,19 @@ namespace Anax\View;
 <p>Denna tjänst erbjuds också som ett REST API för att kunna få tillgång till dess data i JSON format.</p>
 <div>
     <h4>TEST ROUTES FÖR REST API</h4>
-    <p>IPV4<br><a href="<?= url("ip-json?ipAdress=19.117.63.126"); ?>">/ip-json?ipAdress=19.117.63.126</a></p>
-    <p>IPV6<br><a href="<?= url("ip-json?ipAdress=2001:db8:85a3::8a2e:370:7334"); ?>">/ip-json?ipAdress=2001:db8:85a3::8a2e:370:7334</a></p>
+    <p>IPV4<br><a href="<?= url("ip-json?ipAddress=172.16.254.1"); ?>">/ip-json?ipAddress=172.16.254.1</a></p>
+    <p>IPV6<br><a href="<?= url("ip-json?ipAddress=2001:4860:4860::8844"); ?>">/ip-json?ipAddress=2001:4860:4860::8844</a></p>
 </div>
 
 <div class="form-wrapper">
     <form method="post">
         IP:<br>
-        <input type="text" name="ipAdress"><br><br>
+        <input type="text" name="ipAddress"><br><br>
         <input class="button save" type="submit" name="doSubmit" value="SUBMIT">
     </form>
 </div>
 
-<?php if ($data['ipAdress']) : ?>
-    <p><a href="<?= url("ip_json?ipAdress={$data['ipAdress']}"); ?>">REST API - <?= $data['ipAdress'] ?></a></p>
-<?php endif ?>
-
-<?php if (!empty($this->di->get("request")->getPost("doSubmit"))) : ?>
+<?php if ($ipAddress) : ?>
+    <p><a href="<?= url("ip-json?ipAddress=$ipAddress"); ?>">REST API - <?= $ipAddress ?></a></p>
     <?php include "result.php" ?>
-<?php endif; ?>
+<?php endif ?>
