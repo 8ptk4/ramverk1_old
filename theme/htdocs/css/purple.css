@@ -6477,6 +6477,12 @@ a.rm-button.rm-clicked .rm-button-face-2 {
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752GT8D.ttf) format('truetype');
+}
 body {
   background-image: radial-gradient(circle, #190a36, #190a36, #05020b);
 }
@@ -6538,13 +6544,14 @@ legend {
   transition: all 0.3s ease;
   display: block;
   float: left;
-  color: #725c73;
+  color: #9594fc;
+  font-family: 'Oswald', sans-serif;
 }
 .my-navbar li a {
   text-decoration: none !important;
 }
 .my-navbar li:hover {
-  color: #2194E0;
+  color: #bebdff;
   text-shadow: 0px 0px 20px #2194E0;
 }
 .rm-desktop li ul {
@@ -6620,17 +6627,17 @@ legend {
   margin-bottom: 10px;
   background: #17103A !important;
   border-radius: 0px !important;
-  text-shadow: 0px 1px 20px #05020b;
   color: #000000;
   border: 1px solid #608cf0;
   box-shadow: 0px 0px 10px 2px #34065c;
   text-transform: uppercase;
-  text-shadow: 0px 1px 1px #363636;
   border-bottom: 1px solid #608cf0 !important;
+  color: #9594fc;
+  font-family: 'Oswald', sans-serif;
 }
 .button:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background: #1c1346 !important;
   cursor: pointer;
-  color: #2194E0;
-  text-shadow: 0px 0px 10px #2194E0;
+  color: #bebdff;
+  text-shadow: 0px 0px 20px #2194E0;
 }

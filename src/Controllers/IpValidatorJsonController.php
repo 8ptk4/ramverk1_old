@@ -1,14 +1,17 @@
 <?php
 
-namespace Patrik\IpValidator;
+namespace Patrik\Controllers;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
+use Patrik\Models\IpValidator;
 
 class IpValidatorJsonController implements ContainerInjectableInterface
 {
 
     use ContainerInjectableTrait;
+
+
 
     /**
      * Request get and setup json array.
@@ -17,16 +20,13 @@ class IpValidatorJsonController implements ContainerInjectableInterface
      */
     public function indexActionGet() : array
     {
-        $controller = new IpValidatorController();
-
         $ipAddress = htmlentities($this->di->get("request")->getGet("ipAddress"));
-        $status = $controller->validateIp($ipAddress);
-        $domain = $controller->getDomain($ipAddress, $status);
+        $ipValidator = new IpValidator($ipAddress);
 
         $json = [
             "ipAddress" => $ipAddress,
-            "status" => $status,
-            "domain" => $domain,
+            "status" => $ipValidator->validateIp(),
+            "domain" => $ipValidator->getDomain(),
         ];
 
         return [$json];

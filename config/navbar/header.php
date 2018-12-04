@@ -53,5 +53,10 @@ return [
             "url" => "ipvalidator",
             "title" => "Validera IP",
         ],
+        [
+            "text" => "Geolocation",
+            "url" => "geolocation",
+            "title" => "Geolocation",
+        ],
     ],
 ];

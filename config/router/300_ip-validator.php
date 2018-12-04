@@ -7,7 +7,7 @@ return [
         [
             "info" => "Ip Validator",
             "mount" => "ipvalidator",
-            "handler" => "\Patrik\IpValidator\IpValidatorController",
-        ],
+            "handler" => "\Patrik\Controllers\IpValidatorController",
+        ]
     ]
 ];

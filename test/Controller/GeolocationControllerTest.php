@@ -6,9 +6,9 @@ use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test the IpValidatorJsonController.
+ * Test the GeolocationController.
  */
-class IpValidatorJsonControllerTest extends TestCase
+class GeolocationControllerTest extends TestCase
 {
 
     // Create the di container.
@@ -27,19 +27,20 @@ class IpValidatorJsonControllerTest extends TestCase
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
         $di = $this->di;
-        $this->controller = new IpValidatorJsonController();
+        $this->controller = new GeolocationController();
         $this->controller->setDI($this->di);
     }
 
 
 
     /**
-     * Test IndexAction.
-     * @method testIndexAction
+     * Test IndexAction
+     * @method testIndexAction.
      */
     public function testIndexAction()
     {
-        $res = $this->controller->indexActionGet();
-        $this->assertInternalType("array", $res);
+        $res = $this->controller->indexAction();
+        $body = $res->getBody();
+        $this->assertContains("Geolocation", $body);
     }
 }

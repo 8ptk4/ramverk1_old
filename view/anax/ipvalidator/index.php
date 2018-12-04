@@ -9,15 +9,13 @@ namespace Anax\View;
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
-//var_dump($data);
-
 ?><h1><?= $title ?></h1>
 
 <p>Denna tjänst erbjuds också som ett REST API för att kunna få tillgång till dess data i JSON format.</p>
 <div>
     <h4>TEST ROUTES FÖR REST API</h4>
-    <p>IPV4<br><a href="<?= url("ip-json?ipAddress=172.16.254.1"); ?>">/ip-json?ipAddress=172.16.254.1</a></p>
-    <p>IPV6<br><a href="<?= url("ip-json?ipAddress=2001:4860:4860::8844"); ?>">/ip-json?ipAddress=2001:4860:4860::8844</a></p>
+    <p>IPV4<br><a href="<?= url("ip?ipAddress=172.16.254.1"); ?>">/ip?ipAddress=172.16.254.1</a></p>
+    <p>IPV6<br><a href="<?= url("ip?ipAddress=2001:4860:4860::8844"); ?>">/ip?ipAddress=2001:4860:4860::8844</a></p>
 </div>
 
 <div class="form-wrapper">
@@ -29,6 +27,6 @@ namespace Anax\View;
 </div>
 
 <?php if ($ipAddress) : ?>
-    <p><a href="<?= url("ip-json?ipAddress=$ipAddress"); ?>">REST API - <?= $ipAddress ?></a></p>
+    <p><a href="<?= url("ip?ipAddress=$ipAddress"); ?>">REST API - <?= $ipAddress ?></a></p>
     <?php include "result.php" ?>
 <?php endif ?>
