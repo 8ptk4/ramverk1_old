@@ -25,7 +25,7 @@ class GeolocationController implements ContainerInjectableInterface
         $ipPost = htmlentities($this->di->get("request")->getPost("ipAddress"));
         $ipUser = htmlentities($this->di->get("request")->getServer("REMOTE_ADDR"));
 
-        $ipStack = new IpStack($ipPost);
+        $ipStack = new IpStack($ipPost, $this->di->get("ipStack"));
         $validator = new IpValidator($ipPost);
 
         $page = $this->di->get("page");

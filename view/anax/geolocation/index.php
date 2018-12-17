@@ -7,8 +7,8 @@ namespace Anax\View;
  */
 
 // Show incoming variables and view helper functions
-echo showEnvironment(get_defined_vars(), get_defined_functions());
-var_dump($di->get('apikeys'));
+//echo showEnvironment(get_defined_vars(), get_defined_functions());
+//ssvar_dump($di->get('apikeys'));
 ?><h1><?= $title ?></h1>
 
 <p>Med denna tjänst kan du få fram detaljer utav ditt ip så som närmsta huvudstad, vilket land, longitud, latitud samt kontinent
