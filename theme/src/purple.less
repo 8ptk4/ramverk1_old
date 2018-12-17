@@ -114,13 +114,26 @@ legend {
         text-shadow:0px 0px 20px #2194E0;
     }
 
+// DROP DOWN MENY STYLE
 .rm-desktop li ul {
-    background: #52565C;
+    //background: #1E234B;
     text-shadow: none;
-    outline: none;
+    outline: 2px solid #1e234b;
+    // Old browsers
+    background: @mainBgStart;
+    // FF3.6-15
+    background: -moz-linear-gradient(top, @mainBgStart 0%, @mainBgEnd 100%);
+    // Chrome10-25,Safari5.1-6
+    background: -webkit-linear-gradient(top, @mainBgStart 0%,@mainBgEnd 100%);
+    // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+    background: linear-gradient(to bottom, @mainBgStart 0%, @mainBgEnd 100%);
+    // IE6-9
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@mainBgStart', endColorstr='@mainBgEnd',GradientType=0 );
+
+    box-shadow: 0 0 30px 15px rgba(0,0,0,.9);
 }
     .rm-desktop li ul li:hover {
-        background: #52565C;
+        //background: #1E234B;
         text-decoration: none;
         outline: none;
     }
@@ -216,6 +229,6 @@ legend {
     .button:hover {
         background: lighten(#17103A, 3%) !important;
         cursor: pointer;
-        color: #bebdff;
+        color: #bff;
         text-shadow:0px 0px 20px #2194E0;
     }
