@@ -63,5 +63,10 @@ return [
             "url" => "geolocation",
             "title" => "Geolocation",
         ],
+        [
+            "text" => "Darksky",
+            "url" => "darksky",
+            "title" => "Darksky",
+        ],
     ],
 ];
