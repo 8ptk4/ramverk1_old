@@ -7,7 +7,7 @@ return [
         [
             "info" => "DarkSky",
             "mount" => "darksky",
-            "handler" => "\Patrik\Controllers\Darksky",
+            "handler" => "\Patrik\Controllers\DarkskyController",
         ]
     ]
 ];
