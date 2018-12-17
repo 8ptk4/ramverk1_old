@@ -10,6 +10,7 @@ return [
             "callback" => function () {
                 $obj = [
                     "ipStack" => "hashdahsd",
+                    "darkSky" => "muahhaha",
                 ];
 
                 return $obj;
