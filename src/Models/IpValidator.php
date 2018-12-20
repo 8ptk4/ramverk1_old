@@ -16,7 +16,7 @@ class IpValidator implements ContainerInjectableInterface
      * IpAddress, Status, Domain
      * @var string
      */
-    public $ipAddress;
+    public $input;
     public $status;
     public $domain;
 
@@ -27,9 +27,9 @@ class IpValidator implements ContainerInjectableInterface
      * @method __construct
      * @param  string      $ipAddress
      */
-    public function __construct($ipAddress)
+    public function __construct($input)
     {
-        $this->ipAddress = $ipAddress;
+        $this->validate($input);     
     }
 
 
@@ -40,12 +40,16 @@ class IpValidator implements ContainerInjectableInterface
      * @param  string     $ipAddress
      * @return string
      */
-    public function validateIp()
+    public function validate($input)
     {
-        if (filter_var($this->ipAddress, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        if (filter_var($input, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             $this->status = "IPV4";
-        } else if (filter_var($this->ipAddress, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+            $this->domain = gethostbyaddr($input);
+        } else if (filter_var($input, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             $this->status = "IPV6";
+            $this->domain = gethostbyaddr($input);
+        } else if (preg_match('/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?);[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/', $input)) {
+            $this->status = explode( ';', $input );
         } else {
             $this->status = null;
         }
@@ -63,12 +67,12 @@ class IpValidator implements ContainerInjectableInterface
      */
     public function getDomain()
     {
-        if (!empty($this->ipAddress and $this->status != null)) {
-            $this->domain = gethostbyaddr($this->ipAddress);
-        } else {
-            $this->domain = "Verkar inte vara en gilltig ip-adress";
-        }
-
         return $this->domain;
+    }
+
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 }
