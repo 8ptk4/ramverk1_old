@@ -34,7 +34,7 @@ class GeolocationController implements ContainerInjectableInterface
             "title" => $title,
             "data" => $ipStack->getInformation(),
             "ipAddress" => $ipPost,
-            "status" => $validator->validateIp(),
+            "status" => $validator->getStatus(),
             "domain" => $validator->getDomain(),
             "userIp" => $ipUser,
         ]);

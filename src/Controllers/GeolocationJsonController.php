@@ -20,7 +20,7 @@ class GeolocationJsonController implements ContainerInjectableInterface
     {
         $ipAddress = htmlentities($this->di->get("request")->getGet("ipAddress"));
 
-        $ipStack = new Ipstack($ipAddress);
+        $ipStack = new Ipstack($ipAddress, $this->di->get("ipStack"));
 
         return [
             $ipStack->getInformation()

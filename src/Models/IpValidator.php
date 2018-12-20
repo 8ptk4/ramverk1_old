@@ -35,7 +35,7 @@ class IpValidator implements ContainerInjectableInterface
 
 
     /**
-     * Validate if IP is IPV4 or IPV6
+     * Validate input if it is IPV4, IPV6 or latidude;longitude
      * @method validateIp
      * @param  string     $ipAddress
      * @return string

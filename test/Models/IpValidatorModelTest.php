@@ -48,7 +48,7 @@ class IpValidatorControllerTest extends TestCase
         $this->controller = new IpValidator($this->di->request->getPost('ipAddressIpv4'));
         $this->controller->setDI($this->di);
         $this->controller->ipAddress = $this->di->request->getPost('ipAddressIpv4');
-        $this->controller->status = $this->controller->validateIp();
+        $this->controller->status = $this->controller->validate($this->di->request->getPost('ipAddressIpv4'));
         $this->controller->domain = $this->controller->getDomain();
         $this->assertContains("IPV4", $this->controller->status);
         $this->assertInternalType('string', $this->controller->status);
@@ -65,7 +65,7 @@ class IpValidatorControllerTest extends TestCase
         $this->controller = new IpValidator($this->di->request->getPost('ipAddressIpv6'));
         $this->controller->setDI($this->di);
         $this->controller->ipAddress = $this->di->request->getPost('ipAddressIpv6');
-        $this->controller->status = $this->controller->validateIp();
+        $this->controller->status = $this->controller->validate($this->di->request->getPost('ipAddressIpv6'));
         $this->controller->domain = $this->controller->getDomain();
         $this->assertContains("IPV6", $this->controller->status);
         $this->assertInternalType('string', $this->controller->status);
